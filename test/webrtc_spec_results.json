@@ -1,0 +1,345 @@
+{
+  "gum_prototype_chain": {
+    "navigator_has_mediaDevices": true,
+    "navigator_own_mediaDevices": false,
+    "Navigator_proto_mediaDevices_desc": {
+      "configurable": true,
+      "enumerable": true,
+      "writable": null,
+      "hasValue": false,
+      "valueType": "undefined",
+      "hasGetter": true,
+      "hasSetter": false
+    },
+    "MediaDevices_proto_gum_desc": {
+      "configurable": true,
+      "enumerable": true,
+      "writable": true,
+      "hasValue": true,
+      "valueType": "function",
+      "hasGetter": false,
+      "hasSetter": false
+    },
+    "MediaDevices_proto_enum_desc": {
+      "configurable": true,
+      "enumerable": true,
+      "writable": true,
+      "hasValue": true,
+      "valueType": "function",
+      "hasGetter": false,
+      "hasSetter": false
+    },
+    "gum_native_toString": "function getUserMedia() { [native code] }",
+    "gum_native_name": "getUserMedia",
+    "gum_native_length": 0
+  },
+  "gum_parameter_validation": {
+    "no_args": {
+      "status": "rejected",
+      "name": "TypeError",
+      "message": "Failed to execute 'getUserMedia' on 'MediaDevices': At least one of audio and video must be requested",
+      "type": "TypeError"
+    },
+    "empty_obj": {
+      "status": "rejected",
+      "name": "TypeError",
+      "message": "Failed to execute 'getUserMedia' on 'MediaDevices': At least one of audio and video must be requested",
+      "type": "TypeError"
+    },
+    "false_false": {
+      "status": "rejected",
+      "name": "TypeError",
+      "message": "Failed to execute 'getUserMedia' on 'MediaDevices': At least one of audio and video must be requested",
+      "type": "TypeError"
+    },
+    "overconstrained_width": {
+      "status": "rejected",
+      "name": "OverconstrainedError",
+      "message": "",
+      "type": "OverconstrainedError",
+      "constraint": "width"
+    },
+    "invalid_exact_device": {
+      "status": "rejected",
+      "name": "OverconstrainedError",
+      "message": "",
+      "type": "OverconstrainedError",
+      "constraint": "deviceId"
+    }
+  },
+  "stream_properties": {
+    "id": "c6abb68f-c6d2-4d8f-892d-51031c40ff16",
+    "active": true,
+    "constructor": "MediaStream",
+    "track_count": 2,
+    "video_track_count": 1,
+    "audio_track_count": 1
+  },
+  "native_video_track": {
+    "id": "5d732aae-3c4c-45f9-ba7b-4c159dc8ca15",
+    "kind": "video",
+    "label": "fake_device_0",
+    "enabled": true,
+    "muted": false,
+    "readyState": "live",
+    "settings": {
+      "aspectRatio": 1.3333333333333333,
+      "deviceId": "87aff08fd58f1e350a50e4ae7164035be0b5a581cc0403b8c7617bd998b927b3",
+      "exposureMode": "manual",
+      "exposureTime": 50,
+      "focusDistance": 50,
+      "focusMode": "manual",
+      "frameRate": 20,
+      "groupId": "a0b3de5acba94512286e5e55f13e272043a782bee5d36e0230e58817de08adc0",
+      "height": 480,
+      "resizeMode": "none",
+      "width": 640
+    },
+    "capabilities": {
+      "aspectRatio": {
+        "max": 3840,
+        "min": 0.000462962962962963
+      },
+      "deviceId": "87aff08fd58f1e350a50e4ae7164035be0b5a581cc0403b8c7617bd998b927b3",
+      "exposureMode": [
+        "manual",
+        "continuous"
+      ],
+      "exposureTime": {
+        "max": 100,
+        "min": 10,
+        "step": 5
+      },
+      "facingMode": [],
+      "focusDistance": {
+        "max": 100,
+        "min": 10,
+        "step": 5
+      },
+      "focusMode": [
+        "manual",
+        "continuous"
+      ],
+      "frameRate": {
+        "max": 20,
+        "min": 0
+      },
+      "groupId": "a0b3de5acba94512286e5e55f13e272043a782bee5d36e0230e58817de08adc0",
+      "height": {
+        "max": 2160,
+        "min": 1
+      },
+      "resizeMode": [
+        "none",
+        "crop-and-scale"
+      ],
+      "width": {
+        "max": 3840,
+        "min": 1
+      }
+    },
+    "constraints": {}
+  },
+  "track_clone": {
+    "original_id": "5d732aae-3c4c-45f9-ba7b-4c159dc8ca15",
+    "cloned_id": "42d61f33-c7ff-452b-9448-08c72e3f8373",
+    "is_distinct_id": true,
+    "cloned_enabled": true,
+    "cloned_readyState": "live",
+    "cloned_settings": {
+      "aspectRatio": 1.3333333333333333,
+      "deviceId": "87aff08fd58f1e350a50e4ae7164035be0b5a581cc0403b8c7617bd998b927b3",
+      "exposureMode": "manual",
+      "exposureTime": 50,
+      "focusDistance": 50,
+      "focusMode": "manual",
+      "frameRate": 20,
+      "groupId": "a0b3de5acba94512286e5e55f13e272043a782bee5d36e0230e58817de08adc0",
+      "height": 480,
+      "resizeMode": "none",
+      "width": 640
+    }
+  },
+  "track_after_stop": {
+    "readyState": "ended",
+    "enabled": true
+  },
+  "canvas_stream": {
+    "stream_constructor": "MediaStream",
+    "track_constructor": "CanvasCaptureMediaStreamTrack",
+    "track_is_MediaStreamTrack": true,
+    "track_proto": "CanvasCaptureMediaStreamTrack",
+    "has_canvas_property": true,
+    "canvas_property_ref_equal": true,
+    "has_requestFrame": true,
+    "settings": {
+      "aspectRatio": 1.3333333333333333,
+      "deviceId": "b1+raPGal1DViFKiMC6cvkZIw7yPX/J0BdMNFJk9msJeakmrDkrPAl7dTWxRIeVMGsvC0PPNQLtTSAp5EC3EBw==",
+      "frameRate": 30,
+      "height": 480,
+      "resizeMode": "none",
+      "width": 640
+    },
+    "capabilities": {
+      "aspectRatio": {
+        "max": 640,
+        "min": 0.0020833333333333333
+      },
+      "deviceId": "b1+raPGal1DViFKiMC6cvkZIw7yPX/J0BdMNFJk9msJeakmrDkrPAl7dTWxRIeVMGsvC0PPNQLtTSAp5EC3EBw==",
+      "facingMode": [],
+      "frameRate": {
+        "max": 30,
+        "min": 0
+      },
+      "height": {
+        "max": 480,
+        "min": 1
+      },
+      "resizeMode": [
+        "none",
+        "crop-and-scale"
+      ],
+      "width": {
+        "max": 640,
+        "min": 1
+      }
+    },
+    "constraints": {},
+    "label": "b1+raPGal1DViFKiMC6cvkZIw7yPX/J0BdMNFJk9msJeakmrDkrPAl7dTWxRIeVMGsvC0PPNQLtTSAp5EC3EBw==",
+    "id": "fdb5c3c1-c21a-4c53-93d6-3d304ca68939"
+  },
+  "device_enumeration": {
+    "count": 7,
+    "kinds": [
+      "audioinput",
+      "audioinput",
+      "audioinput",
+      "videoinput",
+      "audiooutput",
+      "audiooutput",
+      "audiooutput"
+    ],
+    "first_device": {
+      "deviceId": "default",
+      "groupId": "f8822962c7bb5ab3547d646d363ff26701ecbfbe867dc5c7264405f1b2ab113a",
+      "kind": "audioinput",
+      "label": "Fake Default Audio Input",
+      "constructor": "InputDeviceInfo",
+      "hasToJSON": true,
+      "toJSON_res": {
+        "deviceId": "default",
+        "kind": "audioinput",
+        "label": "Fake Default Audio Input",
+        "groupId": "f8822962c7bb5ab3547d646d363ff26701ecbfbe867dc5c7264405f1b2ab113a"
+      }
+    }
+  },
+  "media_device_info_constructor": {
+    "status": "rejected",
+    "name": "TypeError",
+    "message": "Failed to construct 'MediaDeviceInfo': Illegal constructor"
+  },
+  "mock_device_instanceof": true,
+  "prototype_descriptors": {
+    "MediaDevices.prototype.getUserMedia": {
+      "configurable": true,
+      "enumerable": true,
+      "writable": true,
+      "hasValue": true,
+      "valueType": "function",
+      "hasGetter": false,
+      "hasSetter": false
+    },
+    "MediaDevices.prototype.enumerateDevices": {
+      "configurable": true,
+      "enumerable": true,
+      "writable": true,
+      "hasValue": true,
+      "valueType": "function",
+      "hasGetter": false,
+      "hasSetter": false
+    },
+    "Navigator.prototype.mediaDevices": {
+      "configurable": true,
+      "enumerable": true,
+      "writable": null,
+      "hasValue": false,
+      "valueType": "undefined",
+      "hasGetter": true,
+      "hasSetter": false
+    },
+    "HTMLIFrameElement.prototype.contentWindow": {
+      "configurable": true,
+      "enumerable": true,
+      "writable": null,
+      "hasValue": false,
+      "valueType": "undefined",
+      "hasGetter": true,
+      "hasSetter": false
+    },
+    "HTMLIFrameElement.prototype.contentDocument": {
+      "configurable": true,
+      "enumerable": true,
+      "writable": null,
+      "hasValue": false,
+      "valueType": "undefined",
+      "hasGetter": true,
+      "hasSetter": false
+    },
+    "Document.prototype.createElement": {
+      "configurable": true,
+      "enumerable": true,
+      "writable": true,
+      "hasValue": true,
+      "valueType": "function",
+      "hasGetter": false,
+      "hasSetter": false
+    },
+    "Node.prototype.appendChild": {
+      "configurable": true,
+      "enumerable": true,
+      "writable": true,
+      "hasValue": true,
+      "valueType": "function",
+      "hasGetter": false,
+      "hasSetter": false
+    },
+    "Node.prototype.insertBefore": {
+      "configurable": true,
+      "enumerable": true,
+      "writable": true,
+      "hasValue": true,
+      "valueType": "function",
+      "hasGetter": false,
+      "hasSetter": false
+    },
+    "Node.prototype.replaceChild": {
+      "configurable": true,
+      "enumerable": true,
+      "writable": true,
+      "hasValue": true,
+      "valueType": "function",
+      "hasGetter": false,
+      "hasSetter": false
+    },
+    "Element.prototype.attachShadow": {
+      "configurable": true,
+      "enumerable": true,
+      "writable": true,
+      "hasValue": true,
+      "valueType": "function",
+      "hasGetter": false,
+      "hasSetter": false
+    }
+  },
+  "native_function_tostring": "function getUserMedia() { [native code] }",
+  "iframe_lifecycle": {
+    "unattached_contentWindow": "null",
+    "unattached_contentDocument": "null",
+    "attached_contentWindow": "object",
+    "attached_contentDocument": "object",
+    "is_separate_realm": true,
+    "is_separate_MediaDevices_instance": true,
+    "is_separate_Window": true
+  }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrueCam</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="window">
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="brand-group">
+        <div class="brand-mark">
+          <svg width="22" height="22" viewBox="0 0 512 512" fill="none">
+            <rect width="512" height="512" rx="112" fill="#000"/>
+            <rect x="80" y="120" width="352" height="280" rx="44" fill="#2c2c2e"/>
+            <path d="M 196 120 L 216 88 L 296 88 L 316 120 Z" fill="#2c2c2e"/>
+            <circle cx="372" cy="164" r="14" fill="#ff453a"/>
+            <circle cx="256" cy="260" r="92" fill="#0a84ff"/>
+            <line x1="256" y1="184" x2="256" y2="336" stroke="rgba(255, 255, 255, 0.4)" stroke-width="4" stroke-dasharray="10 8"/>
+            <path d="M 226 235 L 202 260 L 226 285" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 204 260 L 244 260" stroke="#fff" stroke-width="16" stroke-linecap="round"/>
+            <path d="M 286 235 L 310 260 L 286 285" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 308 260 L 268 260" stroke="#fff" stroke-width="16" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="brand-title">TrueCam</span>
+        <span class="version-tag">Pro</span>
+      </div>
+
+      <div class="header-actions">
+        <span id="activeDot" class="status-indicator live" title="Extension active"></span>
+        <label class="switch-ios">
+          <input type="checkbox" id="masterToggle" checked>
+          <span class="switch-handle"></span>
+        </label>
+      </div>
+    </header>
+
+    <!-- Context Status Banner -->
+    <div class="context-bar" id="contextBar">
+      <div class="context-left">
+        <span class="context-dot" id="contextDot"></span>
+        <span class="context-text" id="contextText">Universal WebRTC Active</span>
+      </div>
+      <span class="context-badge">Active</span>
+    </div>
+
+    <!-- Live Preview Monitor -->
+    <div class="preview-frame" id="previewFrame">
+      <video id="previewVideo" autoplay playsinline muted></video>
+      
+      <!-- Standby state -->
+      <div class="standby-screen" id="standbyScreen">
+        <svg class="standby-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        <span class="standby-text">Preview Inactive</span>
+        <button id="btnTogglePreview" class="btn-preview-trigger">Turn on preview</button>
+      </div>
+
+      <!-- Live Metadata HUD (Shown when preview is running) -->
+      <div class="hud-layer" id="hudLayer" style="display: none;">
+        <div class="hud-tag" id="hudMetrics">1080p • 30fps</div>
+        <div class="hud-tag highlight" id="hudTransform">Mirrored</div>
+      </div>
+    </div>
+
+    <!-- Native Grouped Settings Table -->
+    <div class="grouped-panel">
+      <!-- Row 1: Mirror Horizontally -->
+      <div class="table-row">
+        <div class="row-label-group">
+          <span class="row-title">Mirror Horizontally</span>
+          <span class="row-caption">Flips video horizontally so callers see you naturally</span>
+        </div>
+        <label class="switch-ios small">
+          <input type="checkbox" id="horizontalToggle" checked>
+          <span class="switch-handle"></span>
+        </label>
+      </div>
+
+      <div class="row-separator"></div>
+
+      <!-- Row 2: Invert Vertically -->
+      <div class="table-row">
+        <div class="row-label-group">
+          <span class="row-title">Invert Vertically</span>
+          <span class="row-caption">Flips upside down for inverted ceiling setups</span>
+        </div>
+        <label class="switch-ios small">
+          <input type="checkbox" id="verticalToggle">
+          <span class="switch-handle"></span>
+        </label>
+      </div>
+
+      <div class="row-separator"></div>
+
+      <!-- Row 3: Rotation Segmented Control -->
+      <div class="table-row-col">
+        <div class="row-label-group">
+          <span class="row-title">Orientation Angle</span>
+        </div>
+        <div class="segmented-control" id="rotationGroup">
+          <button class="segment active" data-deg="0">0°</button>
+          <button class="segment" data-deg="90">90°</button>
+          <button class="segment" data-deg="180">180°</button>
+          <button class="segment" data-deg="270">270°</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Presets -->
+    <div class="preset-strip">
+      <button class="preset-pill active" id="presetMirror">Natural Mirror</button>
+      <button class="preset-pill" id="presetWhiteboard">Whiteboard / Text</button>
+      <button class="preset-pill" id="presetCeiling">Ceiling Cam</button>
+    </div>
+
+    <!-- Support / Tip Section (Quiet, Elegant, Non-Spammy) -->
+    <div class="support-panel">
+      <div class="support-content">
+        <span class="support-title">Support Creator</span>
+        <span class="support-subtitle">Zero analytics. 100% private. Maintained by an independent developer.</span>
+      </div>
+      <div class="support-actions">
+        <a href="https://paypal.me/boukhrisaymane" target="_blank" class="support-btn" id="paypalLink">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.384-1.05 0.901l-1.12 7.105zm14.146-14.42c-.015-.09-.033-.18-.052-.268C20.57 3.328 18.72 2.5 15.68 2.5H8.724a.641.641 0 0 0-.633.74l-2.02 12.802a.64.64 0 0 0 .633.739h3.324l.836-5.303a.641.641 0 0 1 .633-.541h1.564c3.84 0 6.845-1.56 7.72-6.04.288-1.472.18-2.613-.62-3.48z"/></svg>
+          PayPal
+        </a>
+        <button class="support-btn" id="btnCopyUsdt">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          USDT (TRC-20)
+        </button>
+      </div>
+      <!-- Expandable USDT address info -->
+      <div class="usdt-info" id="usdtInfo" style="display: none;">
+        <span class="usdt-label">TRON (TRC-20) Address (Tap to copy):</span>
+        <code class="usdt-address" id="usdtAddressText">TNWXzQRWcBhs3yutz7XMhu4UpN1xkHDwWW</code>
+      </div>
+    </div>
+
+    <!-- Clean Footer -->
+    <footer class="window-footer">
+      <button id="openTestLab" class="footer-action">Diagnostic Studio</button>
+      <span class="footer-divider">•</span>
+      <a href="https://chrome.google.com/webstore" target="_blank" class="footer-action">Rate extension</a>
+    </footer>
+
+    <!-- Feedback Toast -->
+    <div id="toast" class="toast">Copied to clipboard</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

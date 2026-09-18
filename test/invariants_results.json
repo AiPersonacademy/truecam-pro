@@ -1,0 +1,45 @@
+{
+  "stealth_gum": {
+    "toString_call": "function getUserMedia() { [native code] }",
+    "Function_proto_toString_call": "function getUserMedia() { [native code] }",
+    "string_concat": "function getUserMedia() { [native code] }",
+    "name": "getUserMedia",
+    "length": 0,
+    "descriptor": {
+      "value": null,
+      "writable": true,
+      "enumerable": true,
+      "configurable": true
+    },
+    "toString_own_toString": "function toString() { [native code] }"
+  },
+  "iframe_interception_attempts": {
+    "standard_append": {
+      "hasGUM": true,
+      "is_isolated_from_top_proto": true
+    },
+    "shadow_dom_append": {
+      "hasGUM": true,
+      "is_isolated_from_top_proto": true
+    },
+    "insert_before": {
+      "hasGUM": true,
+      "is_isolated_from_top_proto": true
+    },
+    "srcdoc": {
+      "hasGUM": true,
+      "is_isolated_from_top_proto": true
+    },
+    "contentDocument_defaultView": {
+      "sameWindow": true
+    },
+    "window_frames": {
+      "by_index": true,
+      "by_name": true
+    }
+  },
+  "patched_contentWindow_test": {
+    "patchedCalls": 1,
+    "iframe_received_mock_gum": true
+  }
+}

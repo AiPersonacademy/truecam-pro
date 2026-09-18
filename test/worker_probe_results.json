@@ -1,0 +1,108 @@
+{
+  "dedicatedWorker": {
+    "scope": "DedicatedWorkerGlobalScope",
+    "selfType": "DedicatedWorkerGlobalScope",
+    "hasNavigator": true,
+    "navigatorType": "WorkerNavigator",
+    "hasMediaDevices": false,
+    "mediaDevicesType": "undefined",
+    "hasGetUserMedia": false,
+    "hasVideoEncoder": true,
+    "hasVideoDecoder": true,
+    "hasVideoFrame": true,
+    "hasEncodedVideoChunk": true,
+    "hasImageDecoder": true,
+    "hasMediaStreamTrackProcessor": false,
+    "hasMediaStreamTrackGenerator": false,
+    "hasOffscreenCanvas": true,
+    "offscreenCanvasHasCaptureStream": false,
+    "offscreenCanvasHasConvertToBlob": true,
+    "offscreenCanvasHasTransferToImageBitmap": true,
+    "hasRTCPeerConnection": false,
+    "hasRTCRtpScriptTransform": false
+  },
+  "sharedWorker": {
+    "scope": "SharedWorkerGlobalScope",
+    "selfType": "SharedWorkerGlobalScope",
+    "hasNavigator": true,
+    "navigatorType": "WorkerNavigator",
+    "hasMediaDevices": false,
+    "hasVideoEncoder": false,
+    "hasVideoFrame": false,
+    "hasMediaStreamTrackProcessor": false,
+    "hasMediaStreamTrackGenerator": false,
+    "hasOffscreenCanvas": true,
+    "hasRTCPeerConnection": false
+  },
+  "audioWorklet": {
+    "error": "timeout"
+  },
+  "window": {
+    "scope": "Window",
+    "selfType": "Window",
+    "hasNavigator": true,
+    "navigatorType": "Navigator",
+    "hasMediaDevices": true,
+    "mediaDevicesType": "MediaDevices",
+    "hasGetUserMedia": true,
+    "hasVideoEncoder": true,
+    "hasVideoFrame": true,
+    "hasMediaStreamTrackProcessor": true,
+    "hasMediaStreamTrackGenerator": true,
+    "hasOffscreenCanvas": true,
+    "hasRTCPeerConnection": true,
+    "hasRTCRtpScriptTransform": true
+  },
+  "duckTrack_addTrack": {
+    "error": "TypeError",
+    "message": "Failed to execute 'addTrack' on 'RTCPeerConnection': parameter 1 is not of type 'MediaStreamTrack'."
+  },
+  "protoTrack_addTrack": {
+    "error": "TypeError",
+    "message": "Failed to execute 'addTrack' on 'RTCPeerConnection': parameter 1 is not of type 'MediaStreamTrack'."
+  },
+  "duckTrack_nativeMethodCall": {
+    "error": "TypeError",
+    "message": "Illegal invocation"
+  },
+  "duckTrack_mediaStreamConstructor": {
+    "error": "TypeError",
+    "message": "Failed to construct 'MediaStream': Failed to convert value to 'MediaStreamTrack'."
+  },
+  "duckTrack_trackProcessor": {
+    "error": "TypeError",
+    "message": "Failed to construct 'MediaStreamTrackProcessor': Failed to read the 'track' property from 'MediaStreamTrackProcessorInit': Failed to convert value to 'MediaStreamTrack'."
+  },
+  "canvasTrack_instanceCheck": {
+    "isInstanceOfMediaStreamTrack": true,
+    "constructorName": "CanvasCaptureMediaStreamTrack",
+    "protoName": "CanvasCaptureMediaStreamTrack",
+    "hasId": true,
+    "kind": "video",
+    "readyState": "live"
+  },
+  "canvasTrack_addTrack": {
+    "status": "SUCCESS",
+    "senderTrackId": "0aa5940f-86ae-4c63-bef6-27a77bfeaba2",
+    "dtmfAvailable": false
+  },
+  "canvasTrack_trackProcessor": {
+    "status": "SUCCESS",
+    "readableType": "ReadableStream",
+    "locked": false
+  },
+  "generator_instance": {
+    "status": "SUCCESS",
+    "isInstanceOfMediaStreamTrack": true,
+    "kind": "video",
+    "writableType": "WritableStream"
+  },
+  "generator_addTrack": {
+    "status": "SUCCESS",
+    "senderTrackId": "c50abd31-a3a1-4903-909b-48c097f963f7"
+  },
+  "workerPipeline": {
+    "status": "SUCCESS",
+    "framesProcessed": 3
+  }
+}

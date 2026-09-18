@@ -1,0 +1,16 @@
+# Node / Dependencies
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Test artifacts & Temporary profiles
+test-user-data/
+*.log
+
+# System files
+.DS_Store
+Thumbs.db

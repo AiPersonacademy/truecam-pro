@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Chromium WebRTC & Prototype Spec Probe</title>
+</head>
+<body>
+<div id="results"></div>
+<script>
+(function() {
+  const probeData = {};
+
+  function serializeDesc(desc) {
+    if (!desc) return null;
+    return {
+      configurable: desc.configurable,
+      enumerable: desc.enumerable,
+      writable: desc.writable,
+      hasValue: typeof desc.value !== 'undefined',
+      valueType: typeof desc.value,
+      hasGetter: typeof desc.get === 'function',
+      hasSetter: typeof desc.set === 'function'
+    };
+  }
+
+  // 1. Navigator & MediaDevices descriptors
+  probeData.Navigator_mediaDevices_desc = serializeDesc(Object.getOwnPropertyDescriptor(Navigator.prototype, 'mediaDevices'));
+  probeData.MediaDevices_proto_getUserMedia_desc = serializeDesc(Object.getOwnPropertyDescriptor(MediaDevices.prototype, 'getUserMedia'));
+  probeData.MediaDevices_proto_enumerateDevices_desc = serializeDesc(Object.getOwnPropertyDescriptor(MediaDevices.prototype, 'enumerateDevices'));
+  probeData.MediaDevices_instance_has_own_getUserMedia = navigator.mediaDevices ? Object.prototype.hasOwnProperty.call(navigator.mediaDevices, 'getUserMedia') : null;
+  probeData.MediaDevices_instance_has_own_enumerateDevices = navigator.mediaDevices ? Object.prototype.hasOwnProperty.call(navigator.mediaDevices, 'enumerateDevices') : null;
+  probeData.MediaDevices_proto_toStringTag = MediaDevices.prototype[Symbol.toStringTag];
+  probeData.MediaDevices_instance_toString = navigator.mediaDevices ? navigator.mediaDevices.toString() : null;
+  probeData.getUserMedia_native_toString = MediaDevices.prototype.getUserMedia ? MediaDevices.prototype.getUserMedia.toString() : null;
+  probeData.getUserMedia_native_name = MediaDevices.prototype.getUserMedia ? MediaDevices.prototype.getUserMedia.name : null;
+  probeData.getUserMedia_native_length = MediaDevices.prototype.getUserMedia ? MediaDevices.prototype.getUserMedia.length : null;
+  probeData.enumerateDevices_native_name = MediaDevices.prototype.enumerateDevices ? MediaDevices.prototype.enumerateDevices.name : null;
+  probeData.enumerateDevices_native_length = MediaDevices.prototype.enumerateDevices ? MediaDevices.prototype.enumerateDevices.length : null;
+
+  // Function.prototype.toString properties
+  probeData.Function_toString_desc = serializeDesc(Object.getOwnPropertyDescriptor(Function.prototype, 'toString'));
+  probeData.Function_toString_call_gum = Function.prototype.toString.call(MediaDevices.prototype.getUserMedia);
+
+  // 2. MediaStream & MediaStreamTrack descriptors
+  probeData.MediaStream_proto_keys = Object.getOwnPropertyNames(MediaStream.prototype);
+  probeData.MediaStreamTrack_proto_keys = Object.getOwnPropertyNames(MediaStreamTrack.prototype);
+  
+  const trackDescs = {};
+  ['id', 'kind', 'label', 'enabled', 'muted', 'readyState', 'getSettings', 'getCapabilities', 'getConstraints', 'applyConstraints', 'clone', 'stop'].forEach(k => {
+    trackDescs[k] = serializeDesc(Object.getOwnPropertyDescriptor(MediaStreamTrack.prototype, k));
+  });
+  probeData.MediaStreamTrack_descriptors = trackDescs;
+
+  // 3. Canvas captureStream & CanvasCaptureMediaStreamTrack
+  const canvas = document.createElement('canvas');
+  probeData.canvas_captureStream_exists = typeof canvas.captureStream === 'function';
+  probeData.HTMLCanvasElement_proto_captureStream_desc = serializeDesc(Object.getOwnPropertyDescriptor(HTMLCanvasElement.prototype, 'captureStream'));
+  
+  if (probeData.canvas_captureStream_exists) {
+    const stream = canvas.captureStream(30);
+    probeData.stream_constructor_name = stream.constructor.name;
+    const tracks = stream.getVideoTracks();
+    if (tracks.length > 0) {
+      const track = tracks[0];
+      probeData.canvas_track_constructor_name = track.constructor.name;
+      probeData.canvas_track_proto = Object.getPrototypeOf(track).constructor.name;
+      probeData.canvas_track_proto_proto = Object.getPrototypeOf(Object.getPrototypeOf(track)).constructor.name;
+      probeData.canvas_track_is_MediaStreamTrack = track instanceof MediaStreamTrack;
+      probeData.canvas_track_has_canvas_property = 'canvas' in track;
+      probeData.canvas_track_has_requestFrame = typeof track.requestFrame === 'function';
+      probeData.canvas_track_own_keys = Object.getOwnPropertyNames(track);
+      probeData.canvas_track_proto_keys = Object.getOwnPropertyNames(Object.getPrototypeOf(track));
+      if (track.getSettings) {
+        probeData.canvas_track_initial_settings = track.getSettings();
+      }
+      if (track.getCapabilities) {
+        try { probeData.canvas_track_capabilities = track.getCapabilities(); } catch(e) { probeData.canvas_track_capabilities_err = e.message; }
+      }
+    }
+  }
+
+  // 4. HTMLIFrameElement descriptors
+  probeData.HTMLIFrameElement_contentWindow_desc = serializeDesc(Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype, 'contentWindow'));
+  probeData.HTMLIFrameElement_contentDocument_desc = serializeDesc(Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype, 'contentDocument'));
+  
+  // Probe iframe lifecycle before and after DOM connection
+  const iframe = document.createElement('iframe');
+  probeData.unattached_iframe_contentWindow = iframe.contentWindow === null ? 'null' : typeof iframe.contentWindow;
+  probeData.unattached_iframe_contentDocument = iframe.contentDocument === null ? 'null' : typeof iframe.contentDocument;
+
+  document.body.appendChild(iframe);
+  probeData.attached_iframe_contentWindow = typeof iframe.contentWindow;
+  probeData.attached_iframe_contentDocument = typeof iframe.contentDocument;
+  probeData.attached_iframe_same_MediaDevices_proto = iframe.contentWindow.MediaDevices.prototype === MediaDevices.prototype;
+  probeData.attached_iframe_same_getUserMedia = iframe.contentWindow.navigator.mediaDevices.getUserMedia === navigator.mediaDevices.getUserMedia;
+  probeData.attached_iframe_same_Function_toString = iframe.contentWindow.Function.prototype.toString === Function.prototype.toString;
+  
+  // What is the constructor of the iframe's window?
+  probeData.attached_iframe_Window_same = iframe.contentWindow.Window === window.Window;
+  iframe.remove();
+
+  // 5. DOM interception points
+  probeData.Document_createElement_desc = serializeDesc(Object.getOwnPropertyDescriptor(Document.prototype, 'createElement'));
+  probeData.Node_appendChild_desc = serializeDesc(Object.getOwnPropertyDescriptor(Node.prototype, 'appendChild'));
+  probeData.Node_insertBefore_desc = serializeDesc(Object.getOwnPropertyDescriptor(Node.prototype, 'insertBefore'));
+  probeData.Node_replaceChild_desc = serializeDesc(Object.getOwnPropertyDescriptor(Node.prototype, 'replaceChild'));
+  probeData.Element_attachShadow_desc = serializeDesc(Object.getOwnPropertyDescriptor(Element.prototype, 'attachShadow'));
+  probeData.Element_append_desc = serializeDesc(Object.getOwnPropertyDescriptor(Element.prototype, 'append'));
+
+  const out = document.getElementById('results');
+  out.textContent = JSON.stringify(probeData, null, 2);
+})();
+</script>
+</body>
+</html>
