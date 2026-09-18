@@ -66,6 +66,7 @@ google meet mirror camera, flip webcam google meet, zoom camera reversed fix, mi
 ☕ SUPPORT INDEPENDENT DEVELOPMENT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 TrueCam Pro is completely free, tracker-free, and independently developed. If it saves you time in meetings, classes, or presentations, you can support development:
+• Buy Me a Coffee: https://buymeacoffee.com/ab2005
 • PayPal: https://paypal.me/boukhrisaymane
 • USDT (TRON / TRC-20 Network): TNWXzQRWcBhs3yutz7XMhu4UpN1xkHDwWW
 ```

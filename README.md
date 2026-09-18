@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/badge/WebRTC-Hardware--Level-emerald?style=flat-square&color=10b981" alt="Hardware Level">
   <img src="https://img.shields.io/badge/Latency-%3C1ms-blueviolet?style=flat-square" alt="Latency">
   <img src="https://img.shields.io/badge/Privacy-100%25%20Client--Side-green?style=flat-square" alt="Privacy">
-  <img src="https://img.shields.io/badge/Chrome-Compatible-success?style=flat-square" alt="Chrome">
+  <a href="https://buymeacoffee.com/ab2005"><img src="https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee"></a>
 </p>
 
 ---
@@ -119,6 +119,7 @@ TrueCam includes a standalone diagnostic lab to verify pixel stream manipulation
 
 TrueCam Pro is 100% free, tracker-free, and independently developed. If it saves you time in meetings, classes, or presentations, you can support development:
 
+- **Buy Me a Coffee**: [buymeacoffee.com/ab2005](https://buymeacoffee.com/ab2005)
 - **PayPal**: [paypal.me/boukhrisaymane](https://paypal.me/boukhrisaymane)
 - **USDT (TRON Network / TRC-20)**:
   ```text
