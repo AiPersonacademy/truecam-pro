@@ -459,6 +459,7 @@ def main():
     chrome_zip = DIST_DIR / "truecam-pro-chrome.zip"
     edge_zip = DIST_DIR / "truecam-pro-edge.zip"
     firefox_zip = DIST_DIR / "truecam-pro-firefox.zip"
+    source_zip = DIST_DIR / "truecam-pro-source.zip"
 
     print("\n[Archiving]")
     print(f"  Writing {chrome_zip.name}...")
@@ -469,6 +470,34 @@ def main():
 
     print(f"  Writing {firefox_zip.name}...")
     create_zip(firefox_stage, firefox_zip)
+
+    print(f"  Writing {source_zip.name} (for reviewer inspection)...")
+    source_files = [
+        "BUILD.md",
+        "README.md",
+        "STORE_LISTING.md",
+        "build_packages.py",
+        "manifest.json",
+        "isolated-bridge.js",
+        "main-injector.js",
+        "popup/popup.html",
+        "popup/popup.css",
+        "popup/popup.js",
+        "icons/icon16.png",
+        "icons/icon32.png",
+        "icons/icon48.png",
+        "icons/icon128.png",
+        "icons/icon512.png",
+        "icons/icon.svg",
+        "icons/promo_banner_1280x800.jpg",
+        "test/test.html",
+        "test/test.js"
+    ]
+    with zipfile.ZipFile(source_zip, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zipf:
+        for rel in source_files:
+            p = ROOT_DIR / rel
+            if p.exists():
+                zipf.write(p, rel)
 
     # 3. Clean up staging artifacts so dist contains only clean packages
     if STAGING_DIR.exists():
