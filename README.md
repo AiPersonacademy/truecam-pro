@@ -43,6 +43,20 @@ It intercepts `navigator.mediaDevices.getUserMedia` before video packets are enc
 
 ---
 
+## 📦 Store Distribution Packages (Ready to Upload)
+
+Pre-built, lint-verified zip packages ready for developer dashboard upload are located in `dist/`:
+
+| Marketplace | Package | Architecture / Compliance |
+| :--- | :--- | :--- |
+| **Google Chrome Web Store** | [`dist/truecam-pro-chrome.zip`](dist/truecam-pro-chrome.zip) | Chromium MV3 (`world: "MAIN"`, Chrome 111+) |
+| **Microsoft Edge Add-ons** | [`dist/truecam-pro-edge.zip`](dist/truecam-pro-edge.zip) | Chromium MV3 (Partner Center compliant) |
+| **Mozilla Firefox Add-ons (AMO)** | [`dist/truecam-pro-firefox.zip`](dist/truecam-pro-firefox.zip) | Gecko MV3 (`gecko.id`, DOM injection fallback, 0 linter errors) |
+
+For complete store submission instructions, review justifications, and store copy, see [STORE_LISTING.md](STORE_LISTING.md).
+
+---
+
 ## 🛠️ Easy Step-by-Step Installation Guide (No Tech Skills Needed!)
 
 Installing TrueCam Pro takes less than **60 seconds**. Works seamlessly on **Google Chrome, Brave, Microsoft Edge, Opera, and Vivaldi**.
