@@ -43,46 +43,72 @@ It intercepts `navigator.mediaDevices.getUserMedia` before video packets are enc
 
 ---
 
-## 🛠️ Step-by-Step Installation Guide
+## 🛠️ Easy Step-by-Step Installation Guide (No Tech Skills Needed!)
 
-Follow these 4 simple steps to install TrueCam Pro in any Chromium browser (**Google Chrome, Brave, Microsoft Edge, Opera, Vivaldi**):
-
-### Step 1: Download or Clone the Repository
-Clone this repository to your computer:
-```bash
-git clone https://github.com/YOUR_USERNAME/truecam-pro.git
-```
-*(Or click **Code > Download ZIP** on GitHub and extract the folder to your PC).*
+Installing TrueCam Pro takes less than **60 seconds**. Works seamlessly on **Google Chrome, Brave, Microsoft Edge, Opera, and Vivaldi**.
 
 ---
 
-### Step 2: Open Extensions Management
-1. In your browser's address bar, navigate to:
+### Step 1: Download & Extract the Folder
+You do **not** need to use git or any terminal commands.
+
+1. Click the green **`<> Code`** button at the top right of this GitHub page.
+2. Click **Download ZIP**.
+3. Locate the downloaded file (`truecam-pro-main.zip`) in your **Downloads** folder.
+4. **Right-click** it and select **Extract All...** (or Unzip).
+
+<p align="center">
+  <img src="docs/guide/step1_download_zip.png" alt="Step 1: Download and Extract ZIP" width="800">
+</p>
+
+---
+
+### Step 2: Open Extensions in Google Chrome
+1. Open Google Chrome (or your favorite Chromium browser).
+2. Type or paste this into your browser's address bar at the top:
    ```text
    chrome://extensions
    ```
-   *(For Microsoft Edge, go to `edge://extensions`)*.
+3. Press **Enter** on your keyboard.  
+   *(If you use Microsoft Edge, type `edge://extensions` instead).*
+
+<p align="center">
+  <img src="docs/guide/step2_open_chrome_extensions.png" alt="Step 2: Open chrome://extensions" width="800">
+</p>
 
 ---
 
-### Step 3: Enable Developer Mode
-In the **top-right corner** of the Extensions page, toggle the **Developer mode** switch to **ON**:
+### Step 3: Turn On "Developer mode"
+1. Look at the **top-right corner** of your Extensions page.
+2. Find the toggle labeled **Developer mode**.
+3. Click it so it turns **blue (ON)**.
 
-```
-+-------------------------------------------------------------+
-| Extensions                                [ Developer mode (•) ] |
-+-------------------------------------------------------------+
-```
+<p align="center">
+  <img src="docs/guide/step3_enable_developer_mode.png" alt="Step 3: Enable Developer Mode" width="800">
+</p>
 
 ---
 
-### Step 4: Load the Unpacked Extension
-1. In the **top-left corner**, click the **Load unpacked** button:
-   ```
-   [ Load unpacked ]  [ Pack extension ]  [ Update ]
-   ```
-2. In the folder picker dialog, select the `webcam-mirror-extension` folder.
-3. **Done!** The TrueCam Pro icon will appear in your browser toolbar. Pin it to your toolbar for instant 1-click access.
+### Step 4: Click "Load unpacked" & Select the Folder
+1. In the **top-left corner**, click the **Load unpacked** button.
+2. A file window will pop up. Navigate to the extracted folder: `webcam-mirror-extension`.
+3. Click **Select Folder**.
+
+<p align="center">
+  <img src="docs/guide/step4_click_load_unpacked.png" alt="Step 4: Click Load Unpacked" width="800">
+</p>
+
+---
+
+### Step 5: Pin TrueCam & Start Your Meeting!
+1. Click the **puzzle piece icon** (🧩) in the top-right toolbar of Chrome.
+2. Click the **Pin icon** (📌) next to **TrueCam Pro** so it stays visible.
+3. Open **Google Meet, Zoom, Teams, or Discord**.
+4. Click the **TrueCam Pro icon** anytime to switch between **Natural Mirror**, **Whiteboard / Text**, or rotate your camera!
+
+<p align="center">
+  <img src="docs/guide/step5_pin_and_use.png" alt="Step 5: Pin and Start Meeting" width="800">
+</p>
 
 ---
 
