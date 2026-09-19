@@ -199,7 +199,10 @@ def build_firefox(target_dir: Path):
         "browser_specific_settings": {
             "gecko": {
                 "id": "truecam-pro@aipersonacademy.com",
-                "strict_min_version": "109.0"
+                "strict_min_version": "109.0",
+                "data_collection_permissions": {
+                    "required": ["none"]
+                }
             }
         },
         "permissions": ["storage"],
@@ -487,7 +490,10 @@ def main():
         "browser_specific_settings": {
             "gecko": {
                 "id": "truecam-pro@aipersonacademy.com",
-                "strict_min_version": "109.0"
+                "strict_min_version": "109.0",
+                "data_collection_permissions": {
+                    "required": ["none"]
+                }
             }
         }
     })

@@ -133,6 +133,7 @@ TrueCam Pro is completely free, tracker-free, and independently developed. If it
 3. **Automated Validation:**
    - The package is tailored for AMO:
      - `gecko.id`: `truecam-pro@aipersonacademy.com`
+     - `gecko.data_collection_permissions`: `{"required": ["none"]}` (mandated by Mozilla AMO as of Nov 2025; informs users no data is collected).
      - Uses `web_accessible_resources` + DOM script injection (avoids AMO's `"world" is not supported` rejection).
    - Passes automated AMO linter with 0 errors.
 4. **Reviewer Notes:**
